@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Server Error</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <%- include('partials/navbar', {page: ''}) %>
+
+    <div class="container mx-auto p-6">
+        <div class="hero bg-red-200 p-10 rounded text-center">
+            <h1 class="text-3xl font-bold">500 - Server Error</h1>
+            <p class="mt-4"><%= message %></p>
+            <a href="/" class="btn mt-4">Go Home</a>
+        </div>
+    </div>
+</body>
+</html>

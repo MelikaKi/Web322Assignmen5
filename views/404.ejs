@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <%- include('partials/navbar', {page: ''}) %>
+
+    <div class="container mx-auto p-6">
+        <div class="hero bg-gray-200 p-10 rounded text-center">
+            <h1 class="text-3xl font-bold">404 - Page Not Found</h1>
+            <p><%= message %></p>
+            <a href="/" class="btn mt-4">Go Home</a>
+            <p class="mt-2">Melika Kazemi - 166429233</p>
+            <p class="mt-2">Timestamp: <%= timestamp %></p>
+        </div>
+    </div>
+</body>
+</html>

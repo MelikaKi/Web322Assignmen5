@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Solutions</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <%- include('partials/navbar', {page: '/'}) %>
+
+    <div class="container mx-auto p-6">
+        <div class="hero bg-gray-200 p-10 text-center rounded">
+            <h1 class="text-3xl font-bold">Explore Climate Solutions</h1>
+            <p class="mt-2">Discover innovative projects addressing climate challenges.</p>
+            <a href="/solutions/projects" class="btn mt-4">View All Projects</a>
+            <p class="mt-2">Melika Kazemi - 166429233</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <% projects.forEach(project => { %>
+                <div class="card bg-white shadow p-4 rounded">
+                    <img src="<%= project.feature_img_url %>" alt="<%= project.title %>" class="w-full rounded mb-2">
+                    <h3 class="text-lg font-bold"><%= project.title %></h3>
+                    <p class="text-sm text-gray-500"><%= project.Sector ? project.Sector.sector_name : "Unknown Sector" %></p>
+                    <p><%= project.summary_short %></p>
+                    <a href="/solutions/projects/<%= project.id %>" class="btn mt-2">View Details</a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>

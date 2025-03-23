@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Climate Solutions</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-gray-100">
+    <%- include('partials/navbar', { page: '/solutions/projects' }) %>
+
+    <div class="container mx-auto p-6">
+        <div class="hero bg-gray-200 p-10 text-center rounded mb-6">
+            <h1 class="text-3xl font-bold">Projects</h1>
+            <p class="mt-2">Explore projects categorized by sectors. Click on a sector to filter the projects.</p>
+            <div class="flex justify-center gap-4 mt-4">
+                <% 
+                    const allowedSectors = ["Industry", "Transportation", "Electricity"];
+                    allowedSectors.forEach(sector => { 
+                %>
+                    <a href="/solutions/projects?sector=<%= sector %>" class="btn"><%= sector %></a>
+                <% }) %>
+                <a href="/solutions/projects" class="btn">All Projects</a>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="table-auto w-full bg-white shadow rounded">
+                <thead>
+                    <tr class="bg-blue-600 text-white">
+                        <th class="p-4">Title</th>
+                        <th class="p-4">Sector</th>
+                        <th class="p-4">Summary</th>
+                        <th class="p-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% projects.forEach(project => { %>
+                        <tr class="text-center border-b hover:bg-gray-100">
+                            <td class="p-4"><%= project.title %></td>
+                            <td class="p-4">
+                                <a href="/solutions/projects?sector=<%= project.Sector ? project.Sector.sector_name : '' %>" class="btn">
+                                    <%= project.Sector ? project.Sector.sector_name : "Unknown Sector" %>
+                                </a>
+                            </td>
+                            <td class="p-4"><%= project.summary_short %></td>
+                            <td class="p-4">
+                                <a href="/solutions/projects/<%= project.id %>" class="btn">Details</a>
+                                <a href="/solutions/editProject/<%= project.id %>" class="btn btn-success ml-2">Edit</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-4">
+            <p class="mt-2">Melika Kazemi - 166429233</p>
+            <p class="mt-2">Timestamp: <%= timestamp %></p>
+        </div>
+    </div>
+</body>
+</html>
